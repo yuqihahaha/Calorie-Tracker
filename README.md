@@ -3,10 +3,11 @@
 ## Introduction
 
 Knowing the amount of calories to consume is essential to help people reach their fitness goals. Recording food intake 
-can help people understand and identify their eating habits, reminding people to stay on track. Therefore, to motivate 
-people (including myself) lose, gain, or maintain weight, and help people continue their efforts, I have chosen to build
-a calorie tracking and counting application.**Potential users** of this application include people who want to 
-maintain good physical health, people who are passionate about fitness, and people who want to manage weight. 
+can help people understand and identify their eating habits, reminding people to stay on track. Therefore, to aid people 
+keep a good body health/shape, motivate people (including myself) to lose, gain, or maintain weight, and help people 
+continue their efforts, I have chosen to build a calorie tracking and counting application. **Potential users** of this 
+application include people who want to maintain good physical health, people who are passionate about fitness, and 
+people who want to manage weight. 
 
 <u> Some key features of this application including:</u> 
 
