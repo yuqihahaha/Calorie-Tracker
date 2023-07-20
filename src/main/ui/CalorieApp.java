@@ -256,7 +256,8 @@ public class CalorieApp {
     // REQUIRES: 0 <= index <= (size of items in the wishlist - 1)
     //           editInput must equals "calc" or "view" or "clear" or "edit"
     // MODIFIES: this
-    // EFFECTS: prints list of foods in wishlist to the screen
+    // EFFECTS: calculate daily total calories in the wishlist, or prints list of foods in wishlist to the screen,
+    //          or clear all data in the wishlist, or remove one specific unwanted food (according to index)
     private void editWishlist() {
         String editInput = null;
         editInput =  input.next();
