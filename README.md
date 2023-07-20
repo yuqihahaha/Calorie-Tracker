@@ -23,10 +23,10 @@ people who want to manage weight.
 
 ## User Stories
 
-- As a user, I want to be able to add food to the record page
-- As a user, I want to be able to remove food from my record page
-- As a user, I want to be able to view the list of foods I added to the record page
+- As a user, I want to be able to add food to the wishlist
+- As a user, I want to be able to clear all foods from my wishlist
+- As a user, I want to be able to view the list of foods' name I added to the record page
 - As a user, I want to be able to calculate my Daily Total Calories
-- As a user, I want to be able to set my personal calories goal and see it displaying on the screen
+- As a user, I want to be able to set my personal calories goal
 
 
