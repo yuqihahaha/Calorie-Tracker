@@ -1,5 +1,6 @@
 package model;
 
+// Represents a food having a name, belonged country and calorie
 public class Food {
     private String name;       // name of the food
     private String country;    // country the food belongs to
@@ -16,17 +17,17 @@ public class Food {
         this.calorie = calorie;
     }
 
-    // EFFECTS; returns the name of the food
+    // EFFECTS: returns the name of the food
     public String getName() {
         return name;
     }
 
-    // EFFECTS; returns the country of the food
+    // EFFECTS: returns the country of the food
     public String getCountry() {
         return country;
     }
 
-    // EFFECTS; returns the calorie of the food
+    // EFFECTS: returns the calorie of the food
     public int getCalorie() {
         return calorie;
     }

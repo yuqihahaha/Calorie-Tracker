@@ -5,6 +5,7 @@ import model.Wishlist;
 
 import java.util.Scanner;
 
+// Calorie Tracker application
 public class CalorieApp {
     private Scanner input;
     private Wishlist wishlist;
@@ -25,7 +26,8 @@ public class CalorieApp {
     private Food hangoverStew;
 
 
-    // EFFECTS: instantiate foods for each country, and runs the calorie tracker application
+    // EFFECTS: instantiate foods for each country, sets the calorie goal for user,
+    //          and runs the calorie tracker application
     public CalorieApp() {
         wishlist = new Wishlist();
         input = new Scanner(System.in);
@@ -58,7 +60,8 @@ public class CalorieApp {
     }
 
 
-    // EFFECT: lets user to set personal calorie goal
+    // MODIFIES: this
+    // EFFECT: lets user set personal calorie goal
     private void setGoal() {
         System.out.println("Set your goal");
         int goal = input.nextInt();
@@ -67,6 +70,7 @@ public class CalorieApp {
 
     }
 
+    // REQUIRES: command must be "chn", "kor", "cad", or "wish"
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
@@ -122,6 +126,7 @@ public class CalorieApp {
         System.out.println("\te -> Exit");
     }
 
+    // EFFECTS: displays menu of options in wishlist tab to user
     private void displayWishlist() {
         System.out.println("\nYOUR WISHLIST");
         System.out.println("\tcalc -> Calculate daily total calories");
@@ -166,7 +171,9 @@ public class CalorieApp {
         System.out.println("\twish -> Wishlist");
     }
 
-
+    // REQUIRES: selectCad must equals one of "P", "PP", "CP", "PAS" or "WISH"
+    // MODIFIES: this
+    // EFFECTS: allows user to browse canadian foods and adds them into the wishlist
     public void browseCanada() {
         String selectCad = null;
         selectCad =  input.next();
@@ -191,8 +198,9 @@ public class CalorieApp {
         runCalorie();
     }
 
-
-
+    // REQUIRES: selectChn must equals one of "MPT", "KPC", "CS", "FR" or "WISH"
+    // MODIFIES: this
+    // EFFECTS: allows user to browse chinese foods and adds them into the wishlist
     private void browseChina() {
         String selectChn = null;
         selectChn =  input.next();
@@ -218,7 +226,9 @@ public class CalorieApp {
     }
 
 
-
+    // REQUIRES: selectKor must equals one of "T", "BI", "BN", "HS" or "WISH"
+    // MODIFIES: this
+    // EFFECTS: allows user to browse korean foods and adds them into the wishlist
     private void browseKorea() {
         String selectKor = null;
         selectKor =  input.next();
@@ -244,6 +254,8 @@ public class CalorieApp {
     }
 
     // REQUIRES: 0 <= index <= (size of items in the wishlist - 1)
+    //           editInput must equals "calc" or "view" or "clear" or "edit"
+    // MODIFIES: this
     // EFFECTS: prints list of foods in wishlist to the screen
     private void editWishlist() {
         String editInput = null;
