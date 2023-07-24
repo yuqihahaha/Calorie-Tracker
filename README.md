@@ -28,5 +28,7 @@ people who want to manage weight.
 - As a user, I want to be able to view the list of foods' name I added to the record page
 - As a user, I want to be able to calculate my Daily Total Calories
 - As a user, I want to be able to set my personal calories goal
+- As a user, when I select the quit option from the application menu, I want to be reminded to save my to-do list to file and have the option to do so or not
+- As a user, when I start the application, I want to be given the option to load my to-do list from file
 
 
