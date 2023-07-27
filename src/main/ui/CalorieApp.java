@@ -2,13 +2,20 @@ package ui;
 
 import model.Food;
 import model.Wishlist;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // Calorie Tracker application
 public class CalorieApp {
+    private static final String JSON_STORE = "./data/workroom.json";
     private Scanner input;
     private Wishlist wishlist;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private Food poutine;
     private Food tourtiere;
     private Food cheesePizza;
@@ -32,6 +39,8 @@ public class CalorieApp {
         wishlist = new Wishlist();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
 
         setGoal();
         runCalorie();
@@ -86,6 +95,10 @@ public class CalorieApp {
         } else if (command.equals("wish")) {
             displayWishlist();
             editWishlist();
+        } else if (command.equals("s")) {
+            saveWorkRoom();
+        } else if (command.equals("l")) {
+            loadWorkRoom();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -116,13 +129,14 @@ public class CalorieApp {
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("\nWELCOME!");
         System.out.println("\nChoose your country:");
         System.out.println("\tcad -> Canada");
         System.out.println("\tchn -> China");
         System.out.println("\tkor -> Korea");
         System.out.println("\t-----------------------------------");
         System.out.println("\twish -> Wishlist");
+        System.out.println("\ts -> save wishlist to file");
+        System.out.println("\tl -> load wishlist from file");
         System.out.println("\te -> Exit");
     }
 
@@ -133,6 +147,8 @@ public class CalorieApp {
         System.out.println("\tview -> View wishlist");
         System.out.println("\tedit -> Edit wishlist");
         System.out.println("\tclear -> Clear wishlist");
+        System.out.println("\ts -> save wishlist to file");
+        System.out.println("\tl -> load wishlist from file");
     }
 
     // EFFECTS: displays menu of canadian foods available to user
@@ -195,7 +211,6 @@ public class CalorieApp {
             displayWishlist();
             editWishlist();
         }
-        runCalorie();
     }
 
     // REQUIRES: selectChn must equals one of "MPT", "KPC", "CS", "FR" or "WISH"
@@ -222,7 +237,6 @@ public class CalorieApp {
             displayWishlist();
             editWishlist();
         }
-        runCalorie();
     }
 
 
@@ -250,7 +264,6 @@ public class CalorieApp {
             displayWishlist();
             editWishlist();
         }
-        runCalorie();
     }
 
     // REQUIRES: 0 <= index <= (size of items in the wishlist - 1)
@@ -269,13 +282,36 @@ public class CalorieApp {
             System.out.printf("Wishlist: " + wishlist.getNamesInWishlist());
         } else if (editInput.equals("clear")) {
             wishlist = new Wishlist();
+        } else if (editInput.equals("s")) {
+            saveWorkRoom();
+        } else if (editInput.equals("l")) {
+            loadWorkRoom();
         } else {
             System.out.println("Enter the corresponding index of the food you want to remove from the wishlist");
             wishlist.removeFromWishlist(input.nextInt());
         }
-        runCalorie();
-
     }
 
+    // EFFECTS: saves the wishlist to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(wishlist);
+            jsonWriter.close();
+            System.out.println("Saved " + wishlist + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
 
+    // MODIFIES: this
+    // EFFECTS: loads wishlist from file
+    private void loadWorkRoom() {
+        try {
+            wishlist = jsonReader.read();
+            System.out.println("Loaded " + wishlist + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
 }

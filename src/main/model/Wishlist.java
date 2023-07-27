@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents a wishlist having list of food (name), and total calories in the wishlist
-public class Wishlist {
+public class Wishlist implements Writable {
     private ArrayList<Food> wishlist;     // list of foods
     private ArrayList<String> namesList; // list of names of list of foods in the wishlist
     private int totalCalorie;            // the total daily calorie of all foods in the wishlist
@@ -49,5 +53,23 @@ public class Wishlist {
 
     public ArrayList<Food> getFoods() {
         return wishlist;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("total calorie", totalCalorie);
+        json.put("foods", foodsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns foods in wishlist as a JSON array
+    private JSONArray foodsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Food food: wishlist) {
+            jsonArray.put(food.toJson());
+        }
+        return jsonArray;
     }
 }
