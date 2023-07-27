@@ -65,6 +65,7 @@ public class Wishlist implements Writable {
         return wishlist;
     }
 
+    // Written with reference to JsonSerializationDemo
     // EFFECTS: writes a json object with the given data
     @Override
     public JSONObject toJson() {
@@ -75,6 +76,7 @@ public class Wishlist implements Writable {
         return json;
     }
 
+    // Written with reference to JsonSerializationDemo
     // EFFECTS: returns foods in wishlist as a JSON array
     private JSONArray foodsToJson() {
         JSONArray jsonArray = new JSONArray();

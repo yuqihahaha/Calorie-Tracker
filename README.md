@@ -12,10 +12,9 @@ people who want to manage weight.
 <u> Some key features of this application including:</u> 
 
 - Searching caloric content of common foods by categories 
-- Adding foods to record page and save (can also delete wrong ones/clear all)
-- A button on the record page to calculate Daily Total Calories
-- Available for users to set their daily calories goal 
-- Comparing the Daily Total Calories with the personal goal 
+- Adding foods to wishlist and save (can also delete wrong ones/clear all)
+- A button on wishlist to calculate Daily Total Calories
+- Available for users to set their daily calories goal
 - displaying *Yayyy! You Made It!* message when the user meets the goal
 - displaying the difference between the goal and the actual total when failing to meet the goal
 
@@ -28,7 +27,7 @@ people who want to manage weight.
 - As a user, I want to be able to view the list of foods' name I added to the record page
 - As a user, I want to be able to calculate my Daily Total Calories
 - As a user, I want to be able to set my personal calories goal
-- As a user, when I select the quit option from the application menu, I want to be reminded to save my to-do list to file and have the option to do so or not
+- As a user, I want to be given the option to save my wishlist to file
 - As a user, when I start the application, I want to be given the option to load my to-do list from file
 
 

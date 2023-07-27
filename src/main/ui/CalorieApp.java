@@ -292,6 +292,7 @@ public class CalorieApp {
         }
     }
 
+    // Written with reference to JsonSerializationDemo
     // EFFECTS: saves the wishlist to file
     private void saveWorkRoom() {
         try {
@@ -304,6 +305,7 @@ public class CalorieApp {
         }
     }
 
+    // Written with reference to JsonSerializationDemo
     // MODIFIES: this
     // EFFECTS: loads wishlist from file
     private void loadWorkRoom() {
