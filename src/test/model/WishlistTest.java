@@ -9,15 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class WishlistTest {
     private Wishlist testWishlist;
-    private ArrayList<String> nameList;
-    private ArrayList<Food> foodlist;
     private Food testFood1;
     private Food testFood2;
     private Food testFood3;
 
     @BeforeEach
     void runBefore() {
-        testWishlist = new Wishlist();
+        testWishlist = new Wishlist("My wishlist");
         testFood1 = new Food("poutine", "Canada", 233);
         testFood2 = new Food("pepperoni pizza", "Canada", 276);
         testFood3 = new Food("cheese pizza", "Canada", 276);
@@ -26,6 +24,7 @@ public class WishlistTest {
     @Test
     void testConstructor() {
         assertEquals(0, testWishlist.calculateDailyTotal());
+        assertEquals("My wishlist", testWishlist.getName());
     }
 
     @Test

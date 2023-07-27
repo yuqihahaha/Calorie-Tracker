@@ -35,6 +35,7 @@ public class Food implements Writable {
         return calorie;
     }
 
+    // EFFECTS: writes a json object with the given data
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

@@ -28,21 +28,25 @@ public class JsonReaderTest extends JsonTest{
         JsonReader reader = new JsonReader("./data/testReaderEmptyWishlist.json");
         try {
             Wishlist wl = reader.read();
+            assertEquals("My wishlist", wl.getName());
             assertEquals(0, wl.getFoods().size());
+            assertEquals(0, wl.calculateDailyTotal());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
     }
 
     @Test
-    void testReaderGeneralWorkRoom() {
+    void testReaderGeneralWishlist() {
         JsonReader reader = new JsonReader("./data/testReaderGeneralWishlist.json");
         try {
             Wishlist wl = reader.read();
+            assertEquals("My wishlist", wl.getName());
             List<Food> foods = wl.getFoods();
             assertEquals(2, foods.size());
             checkFood("poutine", foods.get(0));
             checkFood("char siu", foods.get(1));
+            assertEquals(471, wl.calculateDailyTotal());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

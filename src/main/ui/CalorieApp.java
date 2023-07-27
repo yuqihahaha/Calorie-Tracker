@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 // Calorie Tracker application
 public class CalorieApp {
-    private static final String JSON_STORE = "./data/workroom.json";
+    private static final String JSON_STORE = "./data/wishlist.json";
     private Scanner input;
     private Wishlist wishlist;
     private JsonWriter jsonWriter;
@@ -36,7 +36,7 @@ public class CalorieApp {
     // EFFECTS: instantiate foods for each country, sets the calorie goal for user,
     //          and runs the calorie tracker application
     public CalorieApp() {
-        wishlist = new Wishlist();
+        wishlist = new Wishlist("My wishlist");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -281,7 +281,7 @@ public class CalorieApp {
         } else if (editInput.equals("view")) {
             System.out.printf("Wishlist: " + wishlist.getNamesInWishlist());
         } else if (editInput.equals("clear")) {
-            wishlist = new Wishlist();
+            wishlist = new Wishlist("My wishlist");
         } else if (editInput.equals("s")) {
             saveWorkRoom();
         } else if (editInput.equals("l")) {
@@ -298,7 +298,7 @@ public class CalorieApp {
             jsonWriter.open();
             jsonWriter.write(wishlist);
             jsonWriter.close();
-            System.out.println("Saved " + wishlist + " to " + JSON_STORE);
+            System.out.println("Saved " + wishlist.getName() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -309,7 +309,7 @@ public class CalorieApp {
     private void loadWorkRoom() {
         try {
             wishlist = jsonReader.read();
-            System.out.println("Loaded " + wishlist + " from " + JSON_STORE);
+            System.out.println("Loaded " + wishlist.getName() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }

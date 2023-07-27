@@ -30,7 +30,8 @@ public class JsonReader {
 
     // EFFECTS: parses wishlist workroom from JSON object and returns it
     private Wishlist parseWishlist(JSONObject jsonObject) {
-        Wishlist wl = new Wishlist();
+        String name = jsonObject.getString("name");
+        Wishlist wl = new Wishlist(name);
         addFoods(wl, jsonObject);
         return wl;
     }
