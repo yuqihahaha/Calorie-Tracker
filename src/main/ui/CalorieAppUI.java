@@ -12,9 +12,9 @@ public class CalorieAppUI extends JFrame {
 
     public void createGUI() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
         mainPanel  = createMainPanel();
         mainPanelGreet();
+        setVisible(true);
 
     }
 
@@ -34,6 +34,13 @@ public class CalorieAppUI extends JFrame {
 
         JPanel greetingPanel = new JPanel();
         greetingPanel.setLayout(new BorderLayout());
+
+        greeting.setFont((new Font("TimesRoman", Font.BOLD, 20)));
+        description.setFont((new Font("TimesRoman", Font.PLAIN, 11)));
+        greetingPanel.add(greeting);
+        greetingPanel.add(description);
+
+        mainPanel.add(greetingPanel);
     }
 
     public static void main(String[] args) {
