@@ -28,6 +28,6 @@ people who want to manage weight.
 - As a user, I want to be able to calculate my Daily Total Calories
 - As a user, I want to be able to set my personal calories goal
 - As a user, I want to be given the option to save my wishlist to file
-- As a user, when I start the application, I want to be given the option to load my to-do list from file
+- As a user, when I start the application, I want to be given the option to load my wishlist list from file
 
 
