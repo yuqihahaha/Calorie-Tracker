@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 // Calorie Tracker application
 public class CalorieApp {
-    private static final String JSON_STORE = "./data/wishlist.json";
+    public static final String JSON_STORE = "./data/wishlist.json";
     private Scanner input;
     private Wishlist wishlist;
     private JsonWriter jsonWriter;
