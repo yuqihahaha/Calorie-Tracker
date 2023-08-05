@@ -16,6 +16,7 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     // EFFECTS: sets up window in main menu display
     public CalorieAppUI() {
         super("Calorie Tracker & Calculator");
+        setSize(new Dimension(800, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(false);
         mp  = new MainPanel();

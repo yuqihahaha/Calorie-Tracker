@@ -13,7 +13,8 @@ public class GreetingPanel extends JPanel {
         JLabel greeting = new JLabel("Welcome, " + System.getProperty("user.name") + "!");
         JLabel description = new JLabel("Estimate your total daily Calorie and achieve your fitness goal.");
 
-        greeting.setPreferredSize((new Dimension(200, 50)));
+
+        greeting.setBounds(300, 300, 200, 70);
         greeting.setForeground(Color.decode("#84a5b8"));
         greeting.setFont((new Font("TimesRoman", Font.BOLD, 22)));
         add(greeting, BorderLayout.NORTH);
