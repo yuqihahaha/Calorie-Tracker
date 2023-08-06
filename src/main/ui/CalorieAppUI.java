@@ -29,6 +29,12 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         addMenu();
 
         setVisible(true);
+
+        startPopUpMsg();
+    }
+
+    private void startPopUpMsg() {
+
     }
 
     private void addMenu() {
