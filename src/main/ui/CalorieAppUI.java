@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class CalorieAppUI extends JFrame implements ActionListener {
     private MainPanel mp;
@@ -17,8 +19,7 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     public CalorieAppUI() {
         super("Calorie Tracker & Calculator");
         setSize(new Dimension(800, 600));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setUndecorated(false);
+
         mp  = new MainPanel();
         gp = new GreetingPanel();
         add(mp);
@@ -30,12 +31,55 @@ public class CalorieAppUI extends JFrame implements ActionListener {
 
         setVisible(true);
 
-        startPopUpMsg();
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        startPopUpMessage();
+        closePopUpMessage();
     }
 
-    private void startPopUpMsg() {
+    private void startPopUpMessage() {
+        String[] responses = {"Load my wishlist", "Create new wishlist", "Cancel"};
+        ImageIcon loadIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\src\\main\\picture\\load.png");
 
+        int answer = JOptionPane.showOptionDialog(null,
+                "Do you want to load your wishlist from last time?",
+                "Load",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                loadIcon,
+                responses,
+                0);
+
+        if (answer == 0) {
+            System.out.println("wishlist has been loaded");
+        }
     }
+
+    private void closePopUpMessage() {
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                String[] responses = {"Save my wishlist", "Quit without saving"};
+                int answer = JOptionPane.showOptionDialog(null,
+                        "Want to save before close the app?",
+                        "Save",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.INFORMATION_MESSAGE,
+                        null,
+                        responses,
+                        0);
+
+                if (answer == 0) {
+                    System.out.println("wishlist saved");
+                    e.getWindow().dispose();
+                }
+                if (answer == 1) {
+                    System.out.println("quit");
+                    e.getWindow().dispose();
+                }
+            }
+        });
+    }
+
 
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
