@@ -157,7 +157,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == addToWishlistButton) {
+        if (e.getSource() == addToWishlistButton && curFood != null) {
             wishlist.addFoodToWishlist(curFood);
         }
         if (e.getSource() == food1) {

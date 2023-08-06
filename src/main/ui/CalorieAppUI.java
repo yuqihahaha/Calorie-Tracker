@@ -1,18 +1,28 @@
 package ui;
 
+import model.Wishlist;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class CalorieAppUI extends JFrame implements ActionListener {
+    public static final String JSON_STORE = "./data/wishlist.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private MainPanel mp;
     private GreetingPanel gp;
     private JMenuItem loadFile;
     private JMenuItem saveFile;
     private JMenuItem exitFile;
+    private Wishlist myWishlist;
 
     // Constructs main window
     // EFFECTS: sets up window in main menu display
@@ -20,7 +30,11 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         super("Calorie Tracker & Calculator");
         setSize(new Dimension(800, 600));
 
-        mp  = new MainPanel();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+        myWishlist = new Wishlist("my wishlist");
+
+        mp  = new MainPanel(myWishlist);
         gp = new GreetingPanel();
         add(mp);
         add(gp, BorderLayout.NORTH);
@@ -33,12 +47,12 @@ public class CalorieAppUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         startPopUpMessage();
-        closePopUpMessage();
+        closeWindow();
     }
 
     private void startPopUpMessage() {
         String[] responses = {"Load my wishlist", "Create new wishlist", "Cancel"};
-        ImageIcon loadIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\src\\main\\picture\\load.png");
+        ImageIcon loadIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\load.png");
 
         int answer = JOptionPane.showOptionDialog(null,
                 "Do you want to load your wishlist from last time?",
@@ -50,36 +64,40 @@ public class CalorieAppUI extends JFrame implements ActionListener {
                 0);
 
         if (answer == 0) {
-            System.out.println("wishlist has been loaded");
+            loadWorkRoom();
         }
     }
 
-    private void closePopUpMessage() {
+    private void closeWindow() {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                String[] responses = {"Save my wishlist", "Quit without saving"};
-                int answer = JOptionPane.showOptionDialog(null,
-                        "Want to save before close the app?",
-                        "Save",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.INFORMATION_MESSAGE,
-                        null,
-                        responses,
-                        0);
-
-                if (answer == 0) {
-                    System.out.println("wishlist saved");
-                    e.getWindow().dispose();
-                }
-                if (answer == 1) {
-                    System.out.println("quit");
-                    e.getWindow().dispose();
-                }
+                closePopUpMessage();
             }
-        });
+        }
+        );
     }
 
+
+    private void closePopUpMessage() {
+        String[] responses = {"Save my wishlist", "Quit without saving"};
+        int answer = JOptionPane.showOptionDialog(null,
+                "Want to save before close the app?",
+                "Save",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                responses,
+                0);
+
+        if (answer == 0) {
+            saveWorkRoom();
+            System.exit(0);
+        }
+        if (answer == 1) {
+            System.exit(0);
+        }
+    }
 
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
@@ -107,13 +125,13 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loadFile) {
-            System.out.println("load");
+            loadWorkRoom();
         }
         if (e.getSource() == saveFile) {
-            System.out.println("save");
+            saveWorkRoom();
         }
         if (e.getSource() == exitFile) {
-            System.out.println("exit");
+            closePopUpMessage();
         }
     }
 
@@ -123,6 +141,32 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     private void centreOnScreen() {
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((screen.width - getWidth()) / 2, (screen.height - getHeight()) / 2);
+    }
+
+    // Written with reference to JsonSerializationDemo
+    // EFFECTS: saves the wishlist to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myWishlist);
+            jsonWriter.close();
+            System.out.println("Saved " + myWishlist.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // Written with reference to JsonSerializationDemo
+    // MODIFIES: this
+    // EFFECTS: loads wishlist from file
+    private void loadWorkRoom() {
+        try {
+            myWishlist = jsonReader.read();
+            mp.setWishlist(myWishlist);
+            System.out.println("Loaded " + myWishlist.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 

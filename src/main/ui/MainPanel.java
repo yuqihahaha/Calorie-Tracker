@@ -15,12 +15,13 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton wishlistButton;
     private Wishlist myWishlist;
 
+    // MODIFIES: this
     // EFFECTS: creates the main panel of the application, and sets size and background color of panel
-    public MainPanel() {
+    public MainPanel(Wishlist wishlist) {
         setPreferredSize(new Dimension(800, 600));
         setBackground(Color.decode("#d3ede1"));
         setLayout(null);
-        myWishlist = new Wishlist("New wishlist");
+        myWishlist = wishlist;
 
         add(createKoreaButton());
         add(createChinaButton());
@@ -28,11 +29,17 @@ public class MainPanel extends JPanel implements ActionListener {
         add(createWishlistButton());
     }
 
+    // EFFECTS: set wishlist to the one loaded (wishlist from last time)
+    public void setWishlist(Wishlist wishlist) {
+        myWishlist = wishlist;
+    }
 
+    // EFFECTS: create Korea button with associate name, icon, size.
+    //          Also add actionListener to it so that it can be clicked.
     private JButton createKoreaButton() {
         koreaButton = new JButton("Korea");
         koreaButton.setFocusable(false);
-        koreaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\src\\main\\picture\\Korea.png"));
+        koreaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\Korea.png"));
         koreaButton.setBackground(Color.WHITE);
         koreaButton.setBorder(BorderFactory.createEmptyBorder());
         koreaButton.setBounds(275, 80, 250, 90);
@@ -41,10 +48,12 @@ public class MainPanel extends JPanel implements ActionListener {
         return koreaButton;
     }
 
+    // EFFECTS: create China button with associate name, icon, size.
+    //          Also add actionListener to it so that it can be clicked.
     private JButton createChinaButton() {
         chinaButton = new JButton("China");
         chinaButton.setFocusable(false);
-        chinaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\src\\main\\picture\\China.png"));
+        chinaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\China.png"));
         chinaButton.setBackground(Color.WHITE);
         chinaButton.setBorder(BorderFactory.createEmptyBorder());
         chinaButton.setBounds(275, 180, 250, 90);
@@ -52,10 +61,12 @@ public class MainPanel extends JPanel implements ActionListener {
         return chinaButton;
     }
 
+    // EFFECTS: create Canada button with associate name, icon, size.
+    //          Also add actionListener to it so that it can be clicked.
     private JButton createCanadaButton() {
         canadaButton = new JButton("Canada");
         canadaButton.setFocusable(false);
-        canadaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\src\\main\\picture\\canada.png"));
+        canadaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\canada.png"));
         canadaButton.setBackground(Color.WHITE);
         canadaButton.setBorder(BorderFactory.createEmptyBorder());
         canadaButton.setBounds(275, 280, 250, 90);
@@ -63,6 +74,8 @@ public class MainPanel extends JPanel implements ActionListener {
         return canadaButton;
     }
 
+    // EFFECTS: create wishlist button with associate name, icon, size.
+    //          Also add actionListener to it so that it can be clicked.
     private JButton createWishlistButton() {
         wishlistButton = new JButton("My Wishlist");
         wishlistButton.setFocusable(false);
@@ -73,6 +86,9 @@ public class MainPanel extends JPanel implements ActionListener {
         return wishlistButton;
     }
 
+    // EFFECTS: jump into associate window when click the button. Get to canadian foods window when click canada button;
+    //          chinese foods window when click china button; korean foods window when click korea button;
+    //          and wishlist window  when click my wishlist.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == canadaButton) {

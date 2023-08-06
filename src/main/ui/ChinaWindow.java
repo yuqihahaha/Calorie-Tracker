@@ -72,7 +72,7 @@ public class ChinaWindow extends FoodsWindow {
         maPoTofu = new Food("ma po tofu", "China", 119);
         kungPaoChicken = new Food("kung pao chicken", "China", 129);
         charSiu = new Food("char siu", "China", 238);
-        firedRice = new Food("fired rice", "China", 163);
+        friedRice = new Food("fried rice", "China", 163);
     }
 
     // MODIFIES: this
@@ -82,7 +82,7 @@ public class ChinaWindow extends FoodsWindow {
         chineseFoods.add(maPoTofu);
         chineseFoods.add(kungPaoChicken);
         chineseFoods.add(charSiu);
-        chineseFoods.add(firedRice);
+        chineseFoods.add(friedRice);
         return chineseFoods;
     }
 }
