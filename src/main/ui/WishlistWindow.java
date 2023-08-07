@@ -134,7 +134,9 @@ public class WishlistWindow extends JFrame implements ActionListener {
                 null,
                 options, null);
 
-        wishlist.removeFromWishlist(Integer.valueOf(answer) - 1);
+        if (answer != null) {
+            wishlist.removeFromWishlist(Integer.valueOf(answer) - 1);
+        }
 
         removeAllLabel();
 
