@@ -71,7 +71,7 @@ public class Wishlist implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
-        //json.put("total calorie", totalCalorie);
+        json.put("total calorie", totalCalorie);
         json.put("foods", foodsToJson());
         return json;
     }

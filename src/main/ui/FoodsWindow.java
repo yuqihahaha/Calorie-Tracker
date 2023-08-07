@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a window that includes all appropriate buttons
 public abstract class FoodsWindow extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private JButton addToWishlistButton;
@@ -17,7 +18,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     private JButton food4;
     private Food curFood;
     private Wishlist wishlist;
-    private MainPanel mp;
+
     // Canadian foods
     Food poutine = new Food("poutine", "Canada", 233);
     Food pepperoniPizza = new Food("pepperoni pizza", "Canada", 276);
@@ -41,13 +42,13 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
             friedRice, tteokbokki, bibimbap, bibimNaengmyeon, hangoverStew};
 
 
+    // EFFECTS: constructs a new window, sets up size, color, panels, and buttons for it.
     public FoodsWindow(Wishlist wishlist) {
         super();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(500, 600);
         setResizable(false);
         setLocationRelativeTo(null);
-        this.mp = mp;
 
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(500,600));
@@ -68,6 +69,8 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     }
 
 
+    // MODIFIES: mainPanel;
+    // EFFECTS: add foods button to the main panel
     public JPanel addFoodButtonToPanel() {
         mainPanel.add(addFood1Button());
         mainPanel.add(addFood2Button());
@@ -78,6 +81,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     }
 
 
+    // EFFECTS: constructs a add to wishlist button and sets color, size, location, title, and listener for it
     public JButton addWishlistButton() {
         addToWishlistButton = new JButton("Add to the wishlist");
         addToWishlistButton.setFocusable(false);
@@ -89,6 +93,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
         return addToWishlistButton;
     }
 
+    // EFFECTS: constructs the first food button and sets color, size, location and listener for it
     public JButton addFood1Button() {
         food1 = new JButton(food1SetTitle());
         food1.setFocusable(false);
@@ -102,11 +107,14 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
         return food1;
     }
 
+    // Abstract method to get the title for first food button
     public abstract String food1SetTitle();
 
+    // Abstract method to get calorie that puts on first food button
     public abstract JLabel food1SetCalorie();
 
 
+    // EFFECTS: constructs the second food button and sets color, size, location and listener for it
     public JButton addFood2Button() {
         food2 = new JButton(food2SetTitle());
         food2.setFocusable(false);
@@ -119,10 +127,13 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
         return food2;
     }
 
+    // Abstract method to get the title for second food button
     public abstract String food2SetTitle();
 
+    // Abstract method to get calorie that puts on second food button
     public abstract JLabel food2SetCalorie();
 
+    // EFFECTS: constructs the third food button and sets color, size, location and listener for it
     public JButton addFood3Button() {
         food3 = new JButton(food3SetTitle());
         food3.setFocusable(false);
@@ -135,10 +146,13 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
         return food3;
     }
 
+    // Abstract method to get the title for third food button
     public abstract String food3SetTitle();
 
+    // Abstract method to get calorie that puts on third food button
     public abstract JLabel food3SetCalorie();
 
+    // EFFECTS: constructs the forth food button and sets color, size, location and listener for it
     public JButton addFood4Button() {
         food4 = new JButton(food4SetTitle());
         food4.setFocusable(false);
@@ -151,10 +165,14 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
         return food4;
     }
 
+    // Abstract method to get the title for forth food button
     public abstract String food4SetTitle();
 
+    // Abstract method to get calorie that puts on forth food button
     public abstract JLabel food4SetCalorie();
 
+    // EFFECTS: represents actions to be taken when user click associate button,
+    // click food and click add to wishlist to add food to wishlist
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addToWishlistButton && curFood != null) {
@@ -175,6 +193,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
 
     }
 
+    // EFFECTS: finds associate food to the button; found when they got the same name
     public Food findFood(JButton foodButton) {
         Food result = null;
         for (Food food : foods) {

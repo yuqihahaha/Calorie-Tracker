@@ -6,7 +6,7 @@ import java.awt.*;
 // Represents the panel in which the greeting is displayed.
 public class GreetingPanel extends JPanel {
 
-    // EFFECTS: sets the background color and draws the initial labels
+    // EFFECTS: sets the background color and draws the greeting labels
     public GreetingPanel() {
         setBackground(Color.WHITE);
 

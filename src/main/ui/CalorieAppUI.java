@@ -13,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+// Represents the main window when calorie tracker and calculator is operated.
 public class CalorieAppUI extends JFrame implements ActionListener {
     public static final String JSON_STORE = "./data/wishlist.json";
     private JsonWriter jsonWriter;
@@ -24,8 +25,7 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     private JMenuItem exitFile;
     private Wishlist myWishlist;
 
-    // Constructs main window
-    // EFFECTS: sets up window in main menu display
+    // EFFECTS: constructs main window, sets up window in main menu display
     public CalorieAppUI() {
         super("Calorie Tracker & Calculator");
         setSize(new Dimension(800, 600));
@@ -50,6 +50,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         closeWindow();
     }
 
+    // MODIFIES: this
+    // EFFECTS: display the starter dialog of loading up the data
     private void startPopUpMessage() {
         String[] responses = {"Load my wishlist", "Create new wishlist", "Cancel"};
         ImageIcon loadIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\load.png");
@@ -68,6 +70,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: listener for the exit program button
     private void closeWindow() {
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -79,6 +83,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     }
 
 
+    // MODIFIES: this
+    // EFFECTS: display the saving option dialog of exiting the program
     private void closePopUpMessage() {
         String[] responses = {"Save my wishlist", "Quit without saving"};
         int answer = JOptionPane.showOptionDialog(null,
@@ -99,6 +105,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         }
     }
 
+    // EFFECTS: Adds menu bar, that includes load and save file and exit application.
+    //          Also adds listener for these buttons.
     private void addMenu() {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -122,6 +130,7 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         setJMenuBar(menuBar);
     }
 
+    // EFFECTS: represents actions (load, save, exit) to be taken when user click associate button
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loadFile) {
@@ -169,7 +178,7 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         }
     }
 
-
+    // EFFECTS: run the application
     public static void main(String[] args) {
         new CalorieAppUI();
     }
