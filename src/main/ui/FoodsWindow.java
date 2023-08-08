@@ -97,7 +97,6 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     // EFFECTS: constructs the first food button and sets color, size, location and listener for it
     public JButton addFood1Button() {
         food1 = new JButton(food1SetTitle());
-        food1.setFocusable(false);
         food1.setBackground(Color.WHITE);
         food1.setBorder(BorderFactory.createEmptyBorder());
         food1.setBounds(50, 30, 400, 100);
@@ -118,7 +117,6 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     // EFFECTS: constructs the second food button and sets color, size, location and listener for it
     public JButton addFood2Button() {
         food2 = new JButton(food2SetTitle());
-        food2.setFocusable(false);
         food2.setBackground(Color.WHITE);
         food2.setBorder(BorderFactory.createEmptyBorder());
         food2.setBounds(50, 150, 400, 100);
@@ -137,7 +135,6 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     // EFFECTS: constructs the third food button and sets color, size, location and listener for it
     public JButton addFood3Button() {
         food3 = new JButton(food3SetTitle());
-        food3.setFocusable(false);
         food3.setBackground(Color.WHITE);
         food3.setBorder(BorderFactory.createEmptyBorder());
         food3.setBounds(50, 270, 400, 100);
@@ -156,7 +153,6 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     // EFFECTS: constructs the forth food button and sets color, size, location and listener for it
     public JButton addFood4Button() {
         food4 = new JButton(food4SetTitle());
-        food4.setFocusable(false);
         food4.setBackground(Color.WHITE);
         food4.setBorder(BorderFactory.createEmptyBorder());
         food4.setBounds(50, 390, 400, 100);
