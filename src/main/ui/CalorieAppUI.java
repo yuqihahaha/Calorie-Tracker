@@ -25,6 +25,10 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     private JMenuItem exitFile;
     private Wishlist myWishlist;
 
+    // Written with reference to B02-SpaceInvaderBase
+    // Written with reference to https://www.google.com/search?rlz=1C1CHZN_enCA971CA972&sxsrf=AB5stBgt4ddKbLNnceLbmjUXon
+    // F3Xp81Tw:1691346409425&q=joptionpane+java&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjssLKv1MiAAxUSHzQIHbOEDkgQ0pQJegQIC
+    // xAB&biw=1536&bih=899&dpr=1#fpstate=ive&vld=cid:13965a6e,vid:BuW7y21FcYI
     // EFFECTS: constructs main window, sets up window in main menu display
     public CalorieAppUI() {
         super("Calorie Tracker & Calculator");
@@ -70,6 +74,9 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         }
     }
 
+    // Written with reference to https://www.google.com/search?rlz=1C1CHZN_enCA971CA972&sxsrf=AB5stBjq4egYFaHmHhTFLpT0
+    // e6UnBj80nQ:1691351213225&q=joptionpane+when+close+the+application&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjmtYSi5siAA
+    // xX3ODQIHdfDDaUQ0pQJegQIDBAB&biw=1536&bih=899&dpr=1#fpstate=ive&vld=cid:5f4c37f0,vid:GTFQi5McbzE
     // MODIFIES: this
     // EFFECTS: listener for the exit program button
     private void closeWindow() {
@@ -105,6 +112,9 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         }
     }
 
+    // Written with reference to https://www.google.com/search?rlz=1C1CHZN_enCA971CA972&sxsrf=AB5stBij9yvRVbNTjjzC_3XDF6
+    // ReL2Opvw:1691452396546&q=how+to+add+jmenubar+in+java&tbm=vid&source=lnms&sa=X&ved=2ahUKEwiLooCa38uAAxWHMDQIHXvRAF
+    // 8Q0pQJegQIChAB&biw=1536&bih=899&dpr=1#fpstate=ive&vld=cid:f89bd136,vid:dwLkDGm5EBc
     // EFFECTS: Adds menu bar, that includes load and save file and exit application.
     //          Also adds listener for these buttons.
     private void addMenu() {

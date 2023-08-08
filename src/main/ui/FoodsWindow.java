@@ -42,6 +42,7 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
             friedRice, tteokbokki, bibimbap, bibimNaengmyeon, hangoverStew};
 
 
+    // Written with reference to AlarmSystem
     // EFFECTS: constructs a new window, sets up size, color, panels, and buttons for it.
     public FoodsWindow(Wishlist wishlist) {
         super();

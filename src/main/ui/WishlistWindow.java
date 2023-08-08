@@ -16,8 +16,11 @@ public class WishlistWindow extends JFrame implements ActionListener {
     private Wishlist wishlist;
     private JButton removeFoodButton;
     private JButton calculateFoodButton;
-    private ArrayList<Food> foodList;
 
+
+    // Written with reference to https://www.google.com/search?rlz=1C1CHZN_enCA971CA972&sxsrf=AB5stBglzWKO9xNNGZ_ceCzepl
+    // iaBufpzw:1691453434310&q=jscrollpane&tbm=vid&source=lnms&sa=X&ved=2ahUKEwiVsuyI48uAAxUlLzQIHWk-Cd0Q0pQJegQICxAB&b
+    // iw=1536&bih=899&dpr=1#fpstate=ive&vld=cid:c62ac677,vid:OJSAnlzXRDk
     // EFFECTS: constructs wishlist window, sets up size, title, color, button, and panel.
     public WishlistWindow(Wishlist wishlist) {
         super("My Wishlist");
@@ -37,13 +40,14 @@ public class WishlistWindow extends JFrame implements ActionListener {
         mainPanel.add(calculateButton());
 
         this.wishlist = wishlist;
-        foodList = this.wishlist.getFoods();
 
 
         JScrollPane scrollPane = new JScrollPane(mainPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setPreferredSize(new Dimension(520, 600));
         this.add(scrollPane);
+
+        update();
         pack();
         centreOnScreen();
         setVisible(true);
@@ -59,10 +63,10 @@ public class WishlistWindow extends JFrame implements ActionListener {
     // MODIFIES: mainPanel;
     // EFFECTS: update the wishlist with new added foods
     public void update() {
-        if (foodList.size() != 0) {
+        if (wishlist.getFoods().size() != 0) {
             int value = 50;
             int num = 1;
-            for (Food food : foodList) {
+            for (Food food : wishlist.getFoods()) {
                 JLabel foodLabel = new JLabel("#" + num + " " + food.getName() + ": " + food.getCalorie() + " cal");
                 foodLabel.setFont((new Font("TimesRoman", Font.BOLD, 12)));
                 foodLabel.setBounds(40, value, 235, 60);
@@ -75,6 +79,7 @@ public class WishlistWindow extends JFrame implements ActionListener {
         }
     }
 
+    // Written with reference to AlarmSystem
     // EFFECTS: constructs a remove button and sets background color, size, location and title for it.
     //          adds action listener
     private JButton removeButton() {
@@ -88,6 +93,7 @@ public class WishlistWindow extends JFrame implements ActionListener {
         return removeFoodButton;
     }
 
+    // Written with reference to AlarmSystem
     // EFFECTS: constructs a calculate total daily calorie button,
     //          and sets background color, size, location and title for it.
     //          adds action listener
@@ -136,24 +142,12 @@ public class WishlistWindow extends JFrame implements ActionListener {
 
         if (answer != null) {
             wishlist.removeFromWishlist(Integer.valueOf(answer) - 1);
+            dispose();
+            new WishlistWindow(wishlist);
         }
 
-        removeAllLabel();
-
-        update();
     }
 
-    // MODIFIES: mainPanel
-    // EFFECTS: remove all JLabels from the panel
-    private void removeAllLabel() {
-        Component[] componentList = mainPanel.getComponents();
-
-        for (Component c: componentList) {
-            if (c instanceof JLabel) {
-                mainPanel.remove(c);
-            }
-        }
-    }
 
     // EFFECTS: calculate total daily calorie for all foods in the wishlist and show a message dialog with image in it
     private void calculateCalorie() {

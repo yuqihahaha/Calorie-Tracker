@@ -16,6 +16,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton goalButton;
     private Wishlist myWishlist;
 
+    // Written with reference to B02-SpaceInvaderBase and AlarmSystem
     // MODIFIES: this
     // EFFECTS: creates the main panel of the application,
     //          and sets size and background color of panel, adds button to the panel
@@ -37,6 +38,7 @@ public class MainPanel extends JPanel implements ActionListener {
         myWishlist = wishlist;
     }
 
+    // Written with reference to AlarmSystem
     // EFFECTS: create Korea button with associate name, icon, size.
     //          Also add actionListener to it so that it can be clicked and operate.
     private JButton createKoreaButton() {
@@ -51,6 +53,7 @@ public class MainPanel extends JPanel implements ActionListener {
         return koreaButton;
     }
 
+    // Written with reference to AlarmSystem
     // EFFECTS: create China button with associate name, icon, size.
     //          Also add actionListener to it so that it can be clicked and operate.
     private JButton createChinaButton() {
@@ -64,6 +67,7 @@ public class MainPanel extends JPanel implements ActionListener {
         return chinaButton;
     }
 
+    // Written with reference to AlarmSystem
     // EFFECTS: create Canada button with associate name, icon, size.
     //          Also add actionListener to it so that it can be clicked and operate.
     private JButton createCanadaButton() {
