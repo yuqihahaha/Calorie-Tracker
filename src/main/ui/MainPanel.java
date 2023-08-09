@@ -1,6 +1,8 @@
 package ui;
 
+import model.EventLog;
 import model.Wishlist;
+import model.exception.LogException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +15,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton canadaButton;
     private JButton koreaButton;
     private JButton wishlistButton;
-    private JButton goalButton;
+    //private JButton goalButton;
     private Wishlist myWishlist;
 
     // Written with reference to B02-SpaceInvaderBase and AlarmSystem
@@ -105,6 +107,7 @@ public class MainPanel extends JPanel implements ActionListener {
 //        return goalButton;
 //    }
 
+
     // EFFECTS: jump into associate window when click the button. Get to canadian foods window when click canada button;
     //          chinese foods window when click china button; korean foods window when click korea button;
     //          and wishlist window  when click my wishlist.
@@ -125,6 +128,7 @@ public class MainPanel extends JPanel implements ActionListener {
             wishlistWindow.update();
         }
     }
+
 
 //    public void setGoal() {
 //        String answer = JOptionPane.showInputDialog("Set your goal", JOptionPane.OK_OPTION);

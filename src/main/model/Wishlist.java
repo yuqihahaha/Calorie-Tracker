@@ -30,6 +30,7 @@ public class Wishlist implements Writable {
     // MODIFIES: this
     // EFFECTS: add given foods to the wishlist
     public void addFoodToWishlist(Food food) {
+        EventLog.getInstance().logEvent(new Event("Added food to wishlist: " + food.getName()));
         wishlist.add(food);
     }
 
@@ -37,6 +38,8 @@ public class Wishlist implements Writable {
     // MODIFIES: this
     // EFFECTS: remove foods from the wishlist with indicated index
     public void removeFromWishlist(int index) {
+        EventLog.getInstance().logEvent(new Event("Removed food from wishlist: "
+                + getNamesInWishlist().get(index)));
         wishlist.remove(index);
     }
 
@@ -46,6 +49,7 @@ public class Wishlist implements Writable {
         for (Food food : wishlist) {
             totalCalorie += food.getCalorie();
         }
+        EventLog.getInstance().logEvent(new Event("Calculated total daily calorie is: " + totalCalorie));
         return totalCalorie;
     }
 

@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Wishlist;
 import persistence.JsonReader;
 import persistence.JsonWriter;
@@ -89,6 +91,11 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         );
     }
 
+    public void printLog(EventLog el) {
+        for (Event next: el) {
+            System.out.println(next.toString() + "\n\n");
+        }
+    }
 
     // MODIFIES: this
     // EFFECTS: display the saving option dialog of exiting the program
@@ -105,9 +112,11 @@ public class CalorieAppUI extends JFrame implements ActionListener {
 
         if (answer == 0) {
             saveWorkRoom();
+            printLog(EventLog.getInstance());
             System.exit(0);
         }
         if (answer == 1) {
+            printLog(EventLog.getInstance());
             System.exit(0);
         }
     }

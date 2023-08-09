@@ -16,6 +16,7 @@ public class WishlistWindow extends JFrame implements ActionListener {
     private Wishlist wishlist;
     private JButton removeFoodButton;
     private JButton calculateFoodButton;
+    private JButton clearAllButton;
 
 
     // Written with reference to https://www.google.com/search?rlz=1C1CHZN_enCA971CA972&sxsrf=AB5stBglzWKO9xNNGZ_ceCzepl
@@ -38,6 +39,7 @@ public class WishlistWindow extends JFrame implements ActionListener {
         mainPanel.setLayout(null);
         mainPanel.add(removeButton());
         mainPanel.add(calculateButton());
+        mainPanel.add(clearAllButton());
 
         this.wishlist = wishlist;
 
@@ -94,6 +96,22 @@ public class WishlistWindow extends JFrame implements ActionListener {
     }
 
     // Written with reference to AlarmSystem
+    // EFFECTS: constructs a remove button and sets background color, size, location and title for it.
+    //          adds action listener
+    private JButton clearAllButton() {
+        clearAllButton = new JButton("Clear All");
+        clearAllButton.setFocusable(false);
+        clearAllButton.setBackground(Color.LIGHT_GRAY);
+        clearAllButton.setBorder(BorderFactory.createEmptyBorder());
+        clearAllButton.setBounds(325, 170, 150, 50);
+        clearAllButton.addActionListener(this);
+
+        return clearAllButton;
+    }
+
+
+
+    // Written with reference to AlarmSystem
     // EFFECTS: constructs a calculate total daily calorie button,
     //          and sets background color, size, location and title for it.
     //          adds action listener
@@ -117,6 +135,9 @@ public class WishlistWindow extends JFrame implements ActionListener {
         if (e.getSource() == calculateFoodButton) {
             calculateCalorie();
         }
+//        if (e.getSource() == clearAllButton) {
+//            removeAllFoods();
+//        }
 
     }
 
@@ -148,14 +169,18 @@ public class WishlistWindow extends JFrame implements ActionListener {
 
     }
 
+//    private void removeAllFoods() {
+//        Wishlist newWishlist = new Wishlist("My Wishlist");
+//        wishlist = newWishlist;
+//        dispose();
+//        new WishlistWindow(wishlist);
+//    }
+
 
     // EFFECTS: calculate total daily calorie for all foods in the wishlist and show a message dialog with image in it
     private void calculateCalorie() {
         ImageIcon calIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\calorie.jpg");
-        int calorie = 0;
-        for (Food food: wishlist.getFoods()) {
-            calorie += food.getCalorie();
-        }
+        Integer calorie = wishlist.calculateDailyTotal();
 
         JOptionPane.showMessageDialog(null,
                 "Total calorie is " + String.valueOf(calorie),
