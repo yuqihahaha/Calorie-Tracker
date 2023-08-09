@@ -1,5 +1,7 @@
 package persistence;
 
+import model.Event;
+import model.EventLog;
 import model.Food;
 import model.Wishlist;
 import org.json.JSONArray;
@@ -25,7 +27,7 @@ public class JsonReader {
     // throws IOException if an error occurs reading data from file
     public Wishlist read() throws IOException {
         String jsonData = readFile(source); 
-        JSONObject jsonObject = new JSONObject(jsonData); 
+        JSONObject jsonObject = new JSONObject(jsonData);
         return parseWishlist(jsonObject); 
     }
 

@@ -1,5 +1,7 @@
 package persistence;
 
+import model.Event;
+import model.EventLog;
 import model.Wishlist;
 import org.json.JSONObject;
 

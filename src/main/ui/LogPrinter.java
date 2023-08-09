@@ -1,8 +1,10 @@
 package ui;
 
 import model.EventLog;
-import model.exception.LogException;
 
+// Defines behaviours that event log printers must support.
 public interface LogPrinter {
-    void printLog(EventLog el) throws LogException;
+
+     // EFFECTS: Prints the log and throws exception when printing fails for any reason
+    void printLog(EventLog el);
 }

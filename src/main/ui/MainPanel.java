@@ -1,8 +1,6 @@
 package ui;
 
-import model.EventLog;
 import model.Wishlist;
-import model.exception.LogException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +15,9 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton wishlistButton;
     //private JButton goalButton;
     private Wishlist myWishlist;
+    private CanadaWindow canada;
+    private KoreaWindow korea;
+    private ChinaWindow china;
 
     // Written with reference to B02-SpaceInvaderBase and AlarmSystem
     // MODIFIES: this
@@ -114,14 +115,14 @@ public class MainPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == canadaButton) {
-            CanadaWindow canada = new CanadaWindow(myWishlist);
+            new CanadaWindow(myWishlist);
         }
         if (e.getSource() == koreaButton) {
-            KoreaWindow korea = new KoreaWindow(myWishlist);
+            new KoreaWindow(myWishlist);
 
         }
         if (e.getSource() == chinaButton) {
-            ChinaWindow china = new ChinaWindow(myWishlist);
+            new ChinaWindow(myWishlist);
         }
         if (e.getSource() == wishlistButton) {
             WishlistWindow wishlistWindow = new WishlistWindow(myWishlist);

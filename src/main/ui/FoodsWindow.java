@@ -20,26 +20,24 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
     private Wishlist wishlist;
 
     // Canadian foods
-    Food poutine = new Food("poutine", "Canada", 233);
-    Food pepperoniPizza = new Food("pepperoni pizza", "Canada", 276);
-    Food cheesePizza = new Food("cheese pizza", "Canada", 276);
-    Food pastaWithMarinara = new Food("pasta with marinara sauce", "Canada", 109);
+    protected static Food poutine = new Food("poutine", "Canada", 233);
+    protected static Food pepperoniPizza = new Food("pepperoni pizza", "Canada", 276);
+    protected static Food cheesePizza = new Food("cheese pizza", "Canada", 276);
+    protected static Food pastaWithMarinara = new Food("pasta with marinara sauce", "Canada",
+            109);
 
     // Chinese foods
-    Food maPoTofu = new Food("ma po tofu", "China", 119);
-    Food kungPaoChicken = new Food("kung pao chicken", "China", 129);
-    Food charSiu = new Food("char siu", "China", 238);
-    Food friedRice = new Food("fried rice", "China", 163);
+    protected static Food maPoTofu = new Food("ma po tofu", "China", 119);
+    protected static Food kungPaoChicken = new Food("kung pao chicken", "China", 129);
+    protected static Food charSiu = new Food("char siu", "China", 238);
+    protected static Food friedRice = new Food("fried rice", "China", 163);
 
     // Korean foods
-    Food tteokbokki = new Food("tteokbokki", "Korea", 230);
-    Food bibimbap = new Food("bibimbap", "Korea", 79);
-    Food bibimNaengmyeon = new Food("bibim naengmyeon", "Korea", 223);
-    Food hangoverStew = new Food("hangover stew", "Korea", 64);
+    protected static Food tteokbokki = new Food("tteokbokki", "Korea", 230);
+    protected static Food bibimbap = new Food("bibimbap", "Korea", 79);
+    protected static Food bibimNaengmyeon = new Food("bibim naengmyeon", "Korea", 223);
+    protected static Food hangoverStew = new Food("hangover stew", "Korea", 64);
 
-
-    Food[] foods = {poutine, pepperoniPizza, cheesePizza, pastaWithMarinara, maPoTofu, kungPaoChicken, charSiu,
-            friedRice, tteokbokki, bibimbap, bibimNaengmyeon, hangoverStew};
 
 
     // Written with reference to AlarmSystem
@@ -192,6 +190,8 @@ public abstract class FoodsWindow extends JFrame implements ActionListener {
 
     // EFFECTS: finds associate food to the button; found when they got the same name
     public Food findFood(JButton foodButton) {
+        Food[] foods = {poutine, pepperoniPizza, cheesePizza, pastaWithMarinara, maPoTofu, kungPaoChicken, charSiu,
+                friedRice, tteokbokki, bibimbap, bibimNaengmyeon, hangoverStew};
         Food result = null;
         for (Food food : foods) {
             if (food.getName().equals(foodButton.getText())) {

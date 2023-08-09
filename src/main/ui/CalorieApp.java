@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // Represents the main window when calorie tracker and calculator is operated.
-public class CalorieAppUI extends JFrame implements ActionListener {
+public class CalorieApp extends JFrame implements ActionListener, LogPrinter {
     public static final String JSON_STORE = "./data/wishlist.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -32,13 +32,13 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     // F3Xp81Tw:1691346409425&q=joptionpane+java&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjssLKv1MiAAxUSHzQIHbOEDkgQ0pQJegQIC
     // xAB&biw=1536&bih=899&dpr=1#fpstate=ive&vld=cid:13965a6e,vid:BuW7y21FcYI
     // EFFECTS: constructs main window, sets up window in main menu display
-    public CalorieAppUI() {
+    public CalorieApp() {
         super("Calorie Tracker & Calculator");
         setSize(new Dimension(800, 600));
 
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        myWishlist = new Wishlist("my wishlist");
+        myWishlist = new Wishlist("my Wishlist");
 
         mp  = new MainPanel(myWishlist);
         gp = new GreetingPanel();
@@ -91,6 +91,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
         );
     }
 
+    @Override
+    // EFFECTS: prints the log
     public void printLog(EventLog el) {
         for (Event next: el) {
             System.out.println(next.toString() + "\n\n");
@@ -98,7 +100,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
     }
 
     // MODIFIES: this
-    // EFFECTS: display the saving option dialog of exiting the program
+    // EFFECTS: display the saving option dialog of exiting the program and print all the events that have logged
+    //          when quit the app
     private void closePopUpMessage() {
         String[] responses = {"Save my wishlist", "Quit without saving"};
         int answer = JOptionPane.showOptionDialog(null,
@@ -111,8 +114,8 @@ public class CalorieAppUI extends JFrame implements ActionListener {
                 0);
 
         if (answer == 0) {
-            saveWorkRoom();
             printLog(EventLog.getInstance());
+            saveWorkRoom();
             System.exit(0);
         }
         if (answer == 1) {
@@ -199,6 +202,6 @@ public class CalorieAppUI extends JFrame implements ActionListener {
 
     // EFFECTS: run the application
     public static void main(String[] args) {
-        new CalorieAppUI();
+        new CalorieApp();
     }
 }

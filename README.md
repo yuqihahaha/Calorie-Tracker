@@ -45,4 +45,39 @@ To save the state in this way, you can click "save my wishlist" on the popup win
 - You can reload the state of my application by either clicking "load my wishlist" on the start popup message window or 
 by clicking "File" on the menu bar and clicking "load"
 
+## Phase 4: Task 2
+Wed Aug 09 16:41:25 PDT 2023
+Added food to wishlist: tteokbokki
+
+
+Wed Aug 09 16:41:27 PDT 2023
+Added food to wishlist: bibim naengmyeon
+
+
+Wed Aug 09 16:41:32 PDT 2023
+Added food to wishlist: ma po tofu
+
+
+Wed Aug 09 16:41:35 PDT 2023
+Added food to wishlist: kung pao chicken
+
+
+Wed Aug 09 16:41:40 PDT 2023
+Added food to wishlist: poutine
+
+
+Wed Aug 09 16:41:42 PDT 2023
+Added food to wishlist: cheese pizza
+
+
+Wed Aug 09 16:41:54 PDT 2023
+Removed food from wishlist: ma po tofu
+
+
+Wed Aug 09 16:42:07 PDT 2023
+Removed food from wishlist: bibim naengmyeon
+
+
+Wed Aug 09 16:42:09 PDT 2023
+Calculated total daily calorie is: 868
   
