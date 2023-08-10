@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // Represents the main window when calorie tracker and calculator is operated.
-public class CalorieApp extends JFrame implements ActionListener, LogPrinter {
+public class CalorieApp extends JFrame implements ActionListener {
     public static final String JSON_STORE = "./data/wishlist.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -91,7 +91,7 @@ public class CalorieApp extends JFrame implements ActionListener, LogPrinter {
         );
     }
 
-    @Override
+
     // EFFECTS: prints the log
     public void printLog(EventLog el) {
         for (Event next: el) {

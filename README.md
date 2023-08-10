@@ -24,7 +24,7 @@ people who want to manage weight.
 
 - As a user, I want to be able to add food to the wishlist
 - As a user, I want to be able to clear all foods from my wishlist
-- As a user, I want to be able to view the list of foods' name I added to the record page
+- As a user, I want to be able to view the list of foods' name I added to the wishlist
 - As a user, I want to be able to calculate my Daily Total Calories
 - As a user, I want to be able to set my personal calories goal
 - As a user, I want to be given the option to save my wishlist to file
@@ -80,4 +80,16 @@ Removed food from wishlist: bibim naengmyeon
 
 Wed Aug 09 16:42:09 PDT 2023
 Calculated total daily calorie is: 868
-  
+
+## Phase 4: Task 3
+Looking into my FoodsWindow, ChinaWindow, CanadaWindow, and KoreaWindow classes, there are many repetitive tasks 
+occurring, that I made separate methods to set up foods button in each window. One possible refactoring could be applied 
+to reduce the code redundancy is to put foods filtered by country in three different lists instead of having them as 
+independent Food fields. I can first integrate four button methods in abstract class to one by writing a 
+for loop to generate and set the location of the next food button. Meanwhile, I would have helper methods (for loop) to
+generate the name and calorie of each food in the list. And override the method (pass in each country's foods list) in 
+the subclasses. 
+
+Secondly, by looking at my UML diagram, there's a  triangle shape between CalorieApp, MainPanel, and WishlistPanel, it 
+implies, there's a redundant association. One way to refactoring this is to delete the field in MainPanel, and add 
+parameter to the methods in the class, where it needs the wishlist.  

@@ -15,9 +15,6 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton wishlistButton;
     //private JButton goalButton;
     private Wishlist myWishlist;
-    private CanadaWindow canada;
-    private KoreaWindow korea;
-    private ChinaWindow china;
 
     // Written with reference to B02-SpaceInvaderBase and AlarmSystem
     // MODIFIES: this
