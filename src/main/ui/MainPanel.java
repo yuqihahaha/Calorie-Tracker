@@ -44,7 +44,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton createKoreaButton() {
         koreaButton = new JButton("Korea");
         koreaButton.setFocusable(false);
-        koreaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\Korea.png"));
+        koreaButton.setIcon(new ImageIcon("data/Korea.png"));
         koreaButton.setBackground(Color.WHITE);
         koreaButton.setBorder(BorderFactory.createEmptyBorder());
         koreaButton.setBounds(275, 80, 250, 90);
@@ -59,7 +59,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton createChinaButton() {
         chinaButton = new JButton("China");
         chinaButton.setFocusable(false);
-        chinaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\China.png"));
+        chinaButton.setIcon(new ImageIcon("data/China.png"));
         chinaButton.setBackground(Color.WHITE);
         chinaButton.setBorder(BorderFactory.createEmptyBorder());
         chinaButton.setBounds(275, 180, 250, 90);
@@ -73,7 +73,7 @@ public class MainPanel extends JPanel implements ActionListener {
     private JButton createCanadaButton() {
         canadaButton = new JButton("Canada");
         canadaButton.setFocusable(false);
-        canadaButton.setIcon(new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\canada.png"));
+        canadaButton.setIcon(new ImageIcon("data/canada.png"));
         canadaButton.setBackground(Color.WHITE);
         canadaButton.setBorder(BorderFactory.createEmptyBorder());
         canadaButton.setBounds(275, 280, 250, 90);

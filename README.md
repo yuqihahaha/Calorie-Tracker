@@ -84,12 +84,14 @@ Calculated total daily calorie is: 868
 ## Phase 4: Task 3
 Looking into my FoodsWindow, ChinaWindow, CanadaWindow, and KoreaWindow classes, there are many repetitive tasks 
 occurring, that I made separate methods to set up foods button in each window. One possible refactoring could be applied 
-to reduce the code redundancy is to put foods filtered by country in three different lists instead of having them as 
-independent Food fields. I can first integrate four button methods in abstract class to one by writing a 
-for loop to generate and set the location of the next food button. Meanwhile, I would have helper methods (for loop) to
-generate the name and calorie of each food in the list. And override the method (pass in each country's foods list) in 
-the subclasses. 
+to reduce the code redundancy is to put foods in one list instead of having them as independent Food fields. I can first 
+generate all buttons, set labels on buttons by foods' names and calories, and their background color and border. Then, 
+I would add these buttons to a list and have a checkCountry method in FoodsWindow. I would implement a for each loop in
+the method to check which country the current button belongs to, and then call the setLocation method to set the
+accurate location for the button in their appropriate window. setLocation would be an abstract method, and be 
+implemented (using for loop to update location -- y-axis) in each subclass to generate location for each button. 
 
-Secondly, by looking at my UML diagram, there's a  triangle shape between CalorieApp, MainPanel, and WishlistPanel, it 
-implies, there's a redundant association. One way to refactoring this is to delete the field in MainPanel, and add 
-parameter to the methods in the class, where it needs the wishlist.  
+Secondly, by looking at my UML diagram, there's a  triangle shape between CalorieApp, MainPanel, and WishlistPanel. It 
+implies, there's a redundant association, that mainPanel do not actually need to have a field type Wishlist. One way to 
+refactoring this is to delete the field in MainPanel, and add parameter of type Wishlist to the methods in the class, 
+where it needs the wishlist.  

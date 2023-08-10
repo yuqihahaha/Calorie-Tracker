@@ -6,7 +6,7 @@ import javax.swing.*;
 // Represents the Canada window that includes all chinese foods
 public class CanadaWindow extends FoodsWindow {
 
-    // EFFECTS: constructs china window, sets up window in the way it displays, and gives a title to it.
+    // EFFECTS: constructs canada window, sets up window in the way it displays, and gives a title to it.
     public CanadaWindow(Wishlist wishlist) {
         super(wishlist);
         super.setTitle("Canadian Foods Window");

@@ -3,7 +3,7 @@ package ui;
 import model.Wishlist;
 import javax.swing.*;
 
-// Represents the Korea window that includes all chinese foods
+// Represents the Korea window that includes all korean foods
 public class KoreaWindow extends FoodsWindow {
 
     // EFFECTS: constructs korea window, sets up window in the way it displays, and gives a title to it.

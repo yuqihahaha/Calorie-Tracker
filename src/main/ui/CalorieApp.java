@@ -60,7 +60,7 @@ public class CalorieApp extends JFrame implements ActionListener {
     // EFFECTS: display the starter dialog of loading up the data
     private void startPopUpMessage() {
         String[] responses = {"Load my wishlist", "Create new wishlist", "Cancel"};
-        ImageIcon loadIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\load.png");
+        ImageIcon loadIcon = new ImageIcon("data/load.png");
 
         int answer = JOptionPane.showOptionDialog(null,
                 "Do you want to load your wishlist from last time?",

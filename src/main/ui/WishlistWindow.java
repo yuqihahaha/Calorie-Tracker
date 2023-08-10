@@ -161,7 +161,7 @@ public class WishlistWindow extends JFrame implements ActionListener {
 
     // EFFECTS: calculate total daily calorie for all foods in the wishlist and show a message dialog with image in it
     private void calculateCalorie() {
-        ImageIcon calIcon = new ImageIcon("C:\\Users\\yuqiz\\project_u5e3y\\data\\calorie.jpg");
+        ImageIcon calIcon = new ImageIcon("data/calorie.jpg");
         Integer calorie = wishlist.calculateDailyTotal();
 
         JOptionPane.showMessageDialog(null,
